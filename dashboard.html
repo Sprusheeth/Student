@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | FluxLedger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#dashboard-main">Skip to dashboard</a>
+
+    <header class="site-header">
+      <a class="brand" href="./index.html">FluxLedger</a>
+      <nav aria-label="Dashboard navigation">
+        <a href="./index.html">Home</a>
+        <a href="./login.html">Logout</a>
+      </nav>
+    </header>
+
+    <main id="dashboard-main" class="dashboard">
+      <section class="stat-row">
+        <article class="stat card-3d">
+          <h2>Total Balance</h2>
+          <p class="big" id="total-balance">$0</p>
+        </article>
+        <article class="stat card-3d">
+          <h2>This Month Spent</h2>
+          <p class="big" id="month-spent">$0</p>
+        </article>
+        <article class="stat card-3d">
+          <h2>Top Category</h2>
+          <p class="big" id="top-category">—</p>
+        </article>
+      </section>
+
+      <section class="panel-grid">
+        <article class="panel card-3d">
+          <h2>Expense Breakdown</h2>
+          <div class="bars" id="expense-bars" aria-live="polite"></div>
+        </article>
+
+        <article class="panel card-3d">
+          <h2>Add Expense</h2>
+          <form id="expense-form" class="expense-form">
+            <label for="expense-name">Expense name</label>
+            <input id="expense-name" name="name" required placeholder="Groceries" />
+
+            <label for="expense-category">Category</label>
+            <select id="expense-category" name="category" required>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Bills">Bills</option>
+              <option value="Subscriptions">Subscriptions</option>
+              <option value="Shopping">Shopping</option>
+            </select>
+
+            <label for="expense-amount">Amount</label>
+            <input id="expense-amount" name="amount" type="number" min="1" step="0.01" required placeholder="50" />
+
+            <button type="submit" class="btn btn-primary">Add Expense</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="transactions card-3d">
+        <h2>Recent Transactions</h2>
+        <ul id="transaction-list"></ul>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
